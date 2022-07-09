@@ -2,8 +2,6 @@ package br.com.senai.financaapi.entity;
 
 import br.com.senai.financaapi.enums.Perfil;
 import lombok.Data;
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
