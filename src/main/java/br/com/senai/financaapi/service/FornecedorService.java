@@ -42,7 +42,7 @@ public class FornecedorService {
     }
 
     public List<Fornecedor> listarPor(@NotEmpty(message = "O nome para busca do fornecedor não pode ser vazio") String nome) {
-        return repository.listarPor(nome);
+        return repository.listarPor("%" + nome + "%");
     }
 
     public Optional<Fornecedor> buscarPor(@NotNull(message = "O id de busca para fornecedor não pode ser nulo") Integer id) {

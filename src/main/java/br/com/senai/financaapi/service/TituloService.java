@@ -1,6 +1,5 @@
 package br.com.senai.financaapi.service;
 
-import br.com.senai.financaapi.entity.Fornecedor;
 import br.com.senai.financaapi.entity.Titulo;
 import br.com.senai.financaapi.repository.TituloRepository;
 import com.google.common.base.Preconditions;
@@ -22,7 +21,7 @@ public class TituloService {
     @Autowired
     private TituloRepository repository;
 
-    private Titulo inserir(@Valid @NotNull(message = "O titulo não pode ser nulo") Titulo novoTitulo) {
+    public Titulo inserir(@Valid @NotNull(message = "O titulo não pode ser nulo") Titulo novoTitulo) {
         Preconditions.checkArgument(novoTitulo.getId() == null, "O ID do titulo deve ser nulo");
 
         validateTitulo(novoTitulo);
@@ -30,7 +29,7 @@ public class TituloService {
         return repository.save(novoTitulo);
     }
 
-    private Titulo alterar(@Valid @NotNull(message = "O titulo não pode ser nulo") Titulo tituloSalvo) {
+    public Titulo alterar(@Valid @NotNull(message = "O titulo não pode ser nulo") Titulo tituloSalvo) {
         Preconditions.checkArgument(tituloSalvo.getId() != null, "O ID do fornecedor não deve ser nulo");
 
         validateTitulo(tituloSalvo);
