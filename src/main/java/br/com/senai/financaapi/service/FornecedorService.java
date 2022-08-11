@@ -61,20 +61,20 @@ public class FornecedorService {
     }
 
     public void validateFornecedor(Fornecedor fornecedor) {
-        Preconditions.checkNotNull(fornecedor.getNomeFantasia(),
-                "O nome fantasia do fornecedor não pode ser nulo");
+    	Preconditions.checkArgument(fornecedor.getRazaoSocial() != null && fornecedor.getRazaoSocial() != "",
+                  "A razão social do fornecedor não pode ser vazia");
+    	
+        Preconditions.checkArgument(fornecedor.getNomeFantasia() != null && fornecedor.getNomeFantasia() != "",
+                "O nome fantasia do fornecedor não pode ser vazio");
 
-        Preconditions.checkNotNull(fornecedor.getRazaoSocial(),
-                "A razão social do fornecedor não pode ser nulo ");
+        Preconditions.checkArgument(fornecedor.getCnpj() != null && fornecedor.getCnpj() != "",
+                "O CNPJ do fornecedor não pode ser vazio");
 
-        Preconditions.checkNotNull(fornecedor.getCnpj(),
-                "O CNPJ do fornecedor não pode ser nulo");
+        Preconditions.checkArgument(fornecedor.getLogin() != null && fornecedor.getLogin() != "",
+                "O login do fornecedor não pode ser vazio");
 
-        Preconditions.checkNotNull(fornecedor.getLogin(),
-                "O login do fornecedor não pode ser nulo");
-
-        Preconditions.checkNotNull(fornecedor.getSenha(),
-                "A senha do fornecedor não pode ser nula");
+        Preconditions.checkArgument(fornecedor.getSenha() != null && fornecedor.getSenha() != "",
+        		"A senha do fornecedor não pode ser nula");
 
         Preconditions.checkArgument(fornecedor.getRazaoSocial().length() > 2 && fornecedor.getRazaoSocial().length() < 80,
                 "A razão social do fornecedor deve ter entre 2 e 80 caracteres");
